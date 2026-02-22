@@ -21,9 +21,12 @@ export default function JobCard({ job, candidate }) {
       await applyToJob({
         uuid: candidate.uuid,
         candidateId: candidate.candidateId,
+        applicationId: candidate.applicationId,
         jobId: job.id,
         repoUrl: repoUrl.trim(),
-      });
+    });
+
+    
       setStatus({ type: "success", message: "Postulación enviada con éxito!" });
     } catch (err) {
       setStatus({ type: "error", message: err.message });

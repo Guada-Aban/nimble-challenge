@@ -34,13 +34,13 @@ export async function getJobs() {
     return data;
 }
 
-export async function applyToJob ({ uuid, jobId, candidateId, repoUrl}) {
-    const res = await fetch (`${BASE_URL}/api/candidate/apply-to-job`, {
-        method: "POST" ,
-        headers: {"Content-Type": "application/json"} ,
-        body: JSON.stringify ({ uuid, jobId, candidateId, repoUrl}) ,
+export async function applyToJob({ uuid, jobId, candidateId, applicationId, repoUrl }) {
+  const res = await fetch(`${BASE_URL}/api/candidate/apply-to-job`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ uuid, jobId, candidateId, applicationId, repoUrl }),
+  });
 
-    });
 
     let data = null;
     try {
